@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Survey - Move On</title>
+    <meta name="description" content="Take our personality survey to find your perfect fitness match.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="quiz-body">
+    <div class="quiz-container fade-in">
+        <div class="quiz-header">
+            <h1>Personality Survey</h1>
+            <span class="quiz-progress">1 of 5</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: 20%"></div>
+        </div>
+        <div class="quiz-content">
+            <h2>What motivates you to do fitness?</h2>
+            <form id="quiz-form">
+                <label class="radio-option">
+                    <input type="radio" name="motivation" value="personal-growth" checked>
+                    <span>Personal Growth</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="motivation" value="strength">
+                    <span>Strength & Confidence</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="motivation" value="fun">
+                    <span>Fun & Variety</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="motivation" value="stress">
+                    <span>Stress Relief</span>
+                </label>
+            </form>
+        </div>
+        <div class="quiz-navigation">
+            <button class="btn btn-secondary" id="prev-btn">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M10 12L6 8l4-4"/>
+                </svg>
+                Previous
+            </button>
+            <button class="btn btn-primary" id="next-btn">
+                Next
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M6 4l4 4-4 4"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
