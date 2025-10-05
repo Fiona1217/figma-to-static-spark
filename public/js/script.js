@@ -100,7 +100,6 @@ const questions = [
 
 const personalityData = {
     Explorer: {
-        img: "assets/pics/Hiking 1.png",
         quote: "Offline vibes, ready to manifest growth!",
         title: "The Explorer",
         description: "You thrive on new experiences and pushing your boundaries. Your main character energy is about discovering what your body and mind can achieve.",
@@ -109,7 +108,6 @@ const personalityData = {
         bestMatch: "Connector or Nurturer"
     },
     Fighter: {
-        img: "assets/pics/Superwoman.png",
         quote: "No yikes, just growth and determination!",
         title: "The Fighter",
         description: "You're driven by challenge and competition. Your energy transforms obstacles into opportunities for strength building.",
@@ -118,7 +116,6 @@ const personalityData = {
         bestMatch: "Connector or Nurturer"
     },
     Connector: {
-        img: "assets/pics/Football Team.png",
         quote: "Main character energy through community!",
         title: "The Connector",
         description: "Your superpower is bringing people together. You believe fitness is better when shared with others who inspire and motivate.",
@@ -127,7 +124,6 @@ const personalityData = {
         bestMatch: "Explorer or Fighter"
     },
     Nurturer: {
-        img: "assets/pics/Yoga.png",
         quote: "Flight to better health, lifting others up!",
         title: "The Nurturer",
         description: "You find fulfillment in supporting others' journeys. Your gentle strength creates safe spaces for growth and healing.",

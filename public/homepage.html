@@ -5,24 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Move On - Building Community, Not Competition</title>
     <meta name="description" content="More than fitness. A space for connection, growth, and mental wellbeing.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/67e9c85dec.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="nav">
         <div class="container">
+            <!-- REPLACE LOGO: Change the text or add an <img src="your-logo.png" alt="Move On Logo"> here -->
             <a href="homepage.html" class="logo">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
-                    <path d="M15 20h10M20 15v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
+                <h2>Move On</h2>
             </a>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="#how-it-works">How It Works</a>
                 <a href="about.html">About Us</a>
-                <a href="#contact">Contact Us</a>
+                <a href="mailto:your-email@example.com">Contact Us</a> <!-- REPLACE: Change your-email@example.com -->
             </div>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -44,35 +46,20 @@
         <div class="container">
             <h2 class="fade-in">Why Choose Move On?</h2>
             <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 12L28 20L36 21L30 27L32 36L24 31L16 36L18 27L12 21L20 20L24 12Z" stroke="#6f1224" stroke-width="2" fill="none"/>
-                        </svg>
-                    </div>
+                <div class="feature-card fade-in-scroll">
+                    <div class="feature-icon"><i class="fas fa-magic"></i></div>
                     <h3>Character-based Matching</h3>
-                    <p>Discover fitness partners and exchange and connect with complementary personalities</p>
+                    <p>Discover workout partners who share your mindset and connect with complementary personalities</p>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="18" cy="18" r="6" stroke="#6f1224" stroke-width="2"/>
-                            <circle cx="30" cy="18" r="6" stroke="#6f1224" stroke-width="2"/>
-                            <path d="M12 36c0-6 5-10 12-10s12 4 12 10" stroke="#6f1224" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
+                <div class="feature-card fade-in-scroll">
+                    <div class="feature-icon"><i class="fas fa-hands-helping"></i></div>
                     <h3>Real Connections</h3>
-                    <p>Build authentic friendships through shared fitness goals and values</p>
+                    <p>Build meaningful friendships through shared fitness goals and experiences</p>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="12" stroke="#6f1224" stroke-width="2"/>
-                            <circle cx="24" cy="24" r="4" fill="#6f1224"/>
-                        </svg>
-                    </div>
+                <div class="feature-card fade-in-scroll">
+                    <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
                     <h3>Campus Focused</h3>
-                    <p>Exclusively for University of Ottawa, Algonquin College, and La Cite students at campus gyms</p>
+                    <p>Exclusively for uOttawa students at campus gyms</p>
                 </div>
             </div>
         </div>
