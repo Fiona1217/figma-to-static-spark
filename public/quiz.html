@@ -8,37 +8,20 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="quiz-body">
-    <div class="quiz-container fade-in">
+    <div class="quiz-container fade-in" id="quiz-section">
         <div class="quiz-header">
             <h1>Personality Survey</h1>
-            <span class="quiz-progress">1 of 5</span>
+            <span class="quiz-progress" id="progress-text">1 of 4</span>
         </div>
         <div class="progress-bar">
-            <div class="progress-fill" style="width: 20%"></div>
+            <div class="progress-fill" id="progress-fill" style="width: 25%"></div>
         </div>
         <div class="quiz-content">
-            <h2>What motivates you to do fitness?</h2>
-            <form id="quiz-form">
-                <label class="radio-option">
-                    <input type="radio" name="motivation" value="personal-growth" checked>
-                    <span>Personal Growth</span>
-                </label>
-                <label class="radio-option">
-                    <input type="radio" name="motivation" value="strength">
-                    <span>Strength & Confidence</span>
-                </label>
-                <label class="radio-option">
-                    <input type="radio" name="motivation" value="fun">
-                    <span>Fun & Variety</span>
-                </label>
-                <label class="radio-option">
-                    <input type="radio" name="motivation" value="stress">
-                    <span>Stress Relief</span>
-                </label>
-            </form>
+            <h2 id="question-text">What motivates you most in fitness?</h2>
+            <form id="quiz-form"></form>
         </div>
         <div class="quiz-navigation">
-            <button class="btn btn-secondary" id="prev-btn">
+            <button class="btn btn-secondary" id="prev-btn" style="visibility: hidden;">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M10 12L6 8l4-4"/>
                 </svg>
@@ -46,6 +29,35 @@
             </button>
             <button class="btn btn-primary" id="next-btn">
                 Next
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M6 4l4 4-4 4"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="results-container fade-in" id="results-section" style="display: none;">
+        <div class="results-content">
+            <img id="result-img" src="" alt="Personality Result" class="result-image">
+            <p class="result-quote" id="result-quote"></p>
+            <h1 id="result-title"></h1>
+            <p class="result-description" id="result-description"></p>
+            <div class="result-details">
+                <div class="detail-section">
+                    <h3>Your Strengths</h3>
+                    <ul id="result-strengths"></ul>
+                </div>
+                <div class="detail-section">
+                    <h3>Workout Style</h3>
+                    <p id="result-workout"></p>
+                </div>
+                <div class="detail-section">
+                    <h3>Best Match</h3>
+                    <p id="result-match"></p>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="window.location.href='signup.html'">
+                Get Started
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M6 4l4 4-4 4"/>
                 </svg>
