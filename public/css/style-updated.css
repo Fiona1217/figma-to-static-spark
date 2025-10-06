@@ -63,8 +63,11 @@ h1, h2, h3, h4, h5, h6, .hero h1, .hero p, .btn {
     text-decoration: none;
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
-    font-weight: 700;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
 }
 
 .nav-links {
@@ -411,6 +414,16 @@ h2 {
 .footer-links {
     display: flex;
     gap: 24px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--color-white);
 }
 
 /* About Page */
