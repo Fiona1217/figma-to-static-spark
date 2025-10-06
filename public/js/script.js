@@ -43,11 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Mobile menu toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
+// Mobile menu toggle with hamburger-to-X animation
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinks = document.getElementById('navLinks');
 
-if (mobileMenuBtn) {
+if (mobileMenuBtn && navLinks) {
     mobileMenuBtn.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         mobileMenuBtn.classList.toggle('active');
@@ -179,9 +179,9 @@ if (nextBtn && prevBtn && quizForm) {
         
         // Update next button text
         if (currentQuestion === totalQuestions - 1) {
-            nextBtn.innerHTML = 'Submit <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6 4l4 4-4 4"/></svg>';
+            nextBtn.innerHTML = 'Submit <i class="fas fa-arrow-right"></i>';
         } else {
-            nextBtn.innerHTML = 'Next <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6 4l4 4-4 4"/></svg>';
+            nextBtn.innerHTML = 'Next <i class="fas fa-arrow-right"></i>';
         }
     }
     
@@ -222,10 +222,13 @@ if (nextBtn && prevBtn && quizForm) {
     function showResults(personality) {
         const data = personalityData[personality];
         
+        // Store result in localStorage for signup form
+        localStorage.setItem('quizPersonality', personality);
+        localStorage.setItem('quizPersonalityTitle', data.title);
+        
         document.getElementById('quiz-section').style.display = 'none';
         document.getElementById('results-section').style.display = 'block';
         
-        document.getElementById('result-img').src = data.img;
         document.getElementById('result-quote').textContent = data.quote;
         document.getElementById('result-title').textContent = data.title;
         document.getElementById('result-description').textContent = data.description;
@@ -269,32 +272,73 @@ if (nextBtn && prevBtn && quizForm) {
     renderQuestion();
 }
 
-// Signup form submission
-const signupForm = document.getElementById('signup-form');
+// Signup form with validation
+const signupForm = document.getElementById('signupForm');
 
 if (signupForm) {
+    // Check if user has taken the quiz and populate personality field
+    const savedPersonality = localStorage.getItem('quizPersonalityTitle');
+    if (savedPersonality) {
+        const personalityGroup = document.getElementById('personality-group');
+        const personalityInput = document.getElementById('personality');
+        if (personalityGroup && personalityInput) {
+            personalityGroup.style.display = 'block';
+            personalityInput.value = savedPersonality;
+        }
+    }
+    
+    // Form validation with regex
     signupForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
+        // Clear previous errors
+        document.getElementById('name-error').textContent = '';
+        document.getElementById('email-error').textContent = '';
+        document.getElementById('consent-error').textContent = '';
         
-        // In a real app, this would submit to a server
-        console.log('Form submitted:', { name, email });
+        let isValid = true;
         
-        // Show success message
-        alert('Thank you for signing up! We\'ll be in touch soon.');
+        // Validate name (at least 2 characters, letters, spaces, hyphens, apostrophes)
+        const name = document.getElementById('name').value.trim();
+        const nameRegex = /^[a-zA-Z\s'-]{2,}$/;
+        if (!name || !nameRegex.test(name)) {
+            document.getElementById('name-error').textContent = 'Please enter a valid name (at least 2 characters, letters only)';
+            isValid = false;
+        }
         
-        // Redirect to homepage
-        window.location.href = 'homepage.html';
+        // Validate email
+        const email = document.getElementById('email').value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !emailRegex.test(email)) {
+            document.getElementById('email-error').textContent = 'Please enter a valid email address';
+            isValid = false;
+        }
+        
+        // Validate required consent checkbox
+        const consentAcknowledgment = document.getElementById('consent-acknowledgment');
+        if (!consentAcknowledgment.checked) {
+            document.getElementById('consent-error').textContent = 'You must acknowledge the data handling terms to continue';
+            isValid = false;
+        }
+        
+        if (isValid) {
+            // Form is valid, submit it
+            signupForm.submit();
+        }
     });
 }
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '#contact' || href === '#privacy' || href === '#terms') {
+            e.preventDefault();
+            return;
+        }
+        
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
             target.scrollIntoView({
                 behavior: 'smooth',
