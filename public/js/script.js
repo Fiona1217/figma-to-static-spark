@@ -276,13 +276,11 @@ if (nextBtn && prevBtn && quizForm) {
 const signupForm = document.getElementById('signupForm');
 
 if (signupForm) {
-    // Auto-populate hidden personality field if user took the quiz
+    // Auto-populate hidden personality field if user took the quiz, otherwise set to "-"
     const savedPersonality = localStorage.getItem('quizPersonalityTitle');
-    if (savedPersonality) {
-        const personalityInput = document.getElementById('personality');
-        if (personalityInput) {
-            personalityInput.value = savedPersonality;
-        }
+    const personalityInput = document.getElementById('personality');
+    if (personalityInput) {
+        personalityInput.value = savedPersonality || '-';
     }
     
     // Form validation with regex
