@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5, h6, .hero h1, .hero p, .btn {
 }
 
 .mobile-menu-btn.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
 .mobile-menu-btn.active span:nth-child(2) {
@@ -115,7 +115,7 @@ h1, h2, h3, h4, h5, h6, .hero h1, .hero p, .btn {
 }
 
 .mobile-menu-btn.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Hero Section */
@@ -310,7 +310,7 @@ h2 {
 
 .step-icon {
     flex-shrink: 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--color-white);
     background-color: var(--color-dark-red);
     width: 48px;

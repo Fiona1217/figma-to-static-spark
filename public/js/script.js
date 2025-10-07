@@ -276,13 +276,11 @@ if (nextBtn && prevBtn && quizForm) {
 const signupForm = document.getElementById('signupForm');
 
 if (signupForm) {
-    // Check if user has taken the quiz and populate personality field
+    // Auto-populate hidden personality field if user took the quiz
     const savedPersonality = localStorage.getItem('quizPersonalityTitle');
     if (savedPersonality) {
-        const personalityGroup = document.getElementById('personality-group');
         const personalityInput = document.getElementById('personality');
-        if (personalityGroup && personalityInput) {
-            personalityGroup.style.display = 'block';
+        if (personalityInput) {
             personalityInput.value = savedPersonality;
         }
     }

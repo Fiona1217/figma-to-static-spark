@@ -40,13 +40,8 @@
                     <span class="error-message" id="email-error"></span>
                 </div>
 
-                <div class="form-group" id="personality-group" style="display: none;">
-                    <label for="personality">
-                        <i class="fas fa-star"></i>
-                        Personality Type (from quiz)
-                    </label>
-                    <input type="text" id="personality" name="personality" readonly>
-                </div>
+                <!-- Hidden personality field - auto-populated if quiz was taken -->
+                <input type="hidden" id="personality" name="personality" value="">
 
                 <div class="consent-section">
                     <h3>Consent Options</h3>
@@ -54,24 +49,14 @@
                     <div class="checkbox-group">
                         <input type="checkbox" id="consent-matching" name="consent_matching" value="yes">
                         <label for="consent-matching">
-                            <strong>Matching & Introductions (Optional)</strong><br>
-                            <small class="helper-text">I consent to be matched with other participants and to share my name and email with my matched partner(s). If you don't consent, we will not share your information with other participants.</small>
-                        </label>
-                    </div>
-                    
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="consent-updates" name="consent_updates" value="yes">
-                        <label for="consent-updates">
-                            <strong>Organizer Updates (Optional)</strong><br>
-                            <small>I consent to receive updates from the organizers about this initiative.</small>
+                            I consent to be matched with other participants and to share my name and email with my matched partner(s).
                         </label>
                     </div>
                     
                     <div class="checkbox-group required-consent">
                         <input type="checkbox" id="consent-acknowledgment" name="consent_acknowledgment" required>
                         <label for="consent-acknowledgment">
-                            <strong>Data Handling (Required)</strong><br>
-                            <small>I understand my data will be used only for the purposes selected above and will be kept confidential by the organizers.</small>
+                            I understand my data will be used only for the purposes selected above and will be kept confidential by the organizers.
                         </label>
                         <span class="error-message" id="consent-error"></span>
                     </div>
