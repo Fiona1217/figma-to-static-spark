@@ -21,8 +21,8 @@ if (document.getElementById('hero-background')) {
 
 // Scroll animations
 document.addEventListener('DOMContentLoaded', () => {
-    // Add fade-in-scroll class to all animated elements
-    const animatedElements = document.querySelectorAll('.fade-in');
+    // Select all elements that need scroll animations
+    const animatedElements = document.querySelectorAll('.fade-in-scroll');
     
     const observerOptions = {
         threshold: 0.1,
@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
     
     animatedElements.forEach(el => {
-        el.classList.add('fade-in-scroll');
         observer.observe(el);
     });
 });
@@ -222,9 +221,10 @@ if (nextBtn && prevBtn && quizForm) {
     function showResults(personality) {
         const data = personalityData[personality];
         
-        // Store result in localStorage for signup form
+        // Store result in localStorage for signup form (will be cleared if user navigates away)
         localStorage.setItem('quizPersonality', personality);
         localStorage.setItem('quizPersonalityTitle', data.title);
+        localStorage.setItem('quizTaken', 'true');
         
         document.getElementById('quiz-section').style.display = 'none';
         document.getElementById('results-section').style.display = 'block';
@@ -277,10 +277,12 @@ const signupForm = document.getElementById('signupForm');
 
 if (signupForm) {
     // Auto-populate hidden personality field if user took the quiz, otherwise set to "-"
+    const quizTaken = localStorage.getItem('quizTaken');
     const savedPersonality = localStorage.getItem('quizPersonalityTitle');
     const personalityInput = document.getElementById('personality');
     if (personalityInput) {
-        personalityInput.value = savedPersonality || '-';
+        // Only use saved personality if quiz was actually taken, otherwise always use "-"
+        personalityInput.value = (quizTaken === 'true' && savedPersonality) ? savedPersonality : '-';
     }
     
     // Form validation with regex
@@ -318,11 +320,37 @@ if (signupForm) {
         }
         
         if (isValid) {
+            // Clear quiz data from localStorage after successful submission
+            localStorage.removeItem('quizPersonality');
+            localStorage.removeItem('quizPersonalityTitle');
+            localStorage.removeItem('quizTaken');
+            
             // Form is valid, submit it
             signupForm.submit();
         }
     });
 }
+
+// Clear quiz results when navigating away from quiz page to homepage
+document.addEventListener('DOMContentLoaded', () => {
+    // If we're on the quiz page with results visible
+    const resultsSection = document.getElementById('results-section');
+    if (resultsSection) {
+        // Add event listeners to all links that navigate away from quiz
+        const homeLinks = document.querySelectorAll('a[href="homepage.html"], a[href="about.html"], a[href="#"]');
+        homeLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Clear quiz data when navigating away (but NOT when going to signup)
+                const href = link.getAttribute('href');
+                if (href !== 'signup.html') {
+                    localStorage.removeItem('quizPersonality');
+                    localStorage.removeItem('quizPersonalityTitle');
+                    localStorage.removeItem('quizTaken');
+                }
+            });
+        });
+    }
+});
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
