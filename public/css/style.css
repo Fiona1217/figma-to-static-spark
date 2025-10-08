@@ -23,106 +23,6 @@
     --transition: all 0.3s ease;
 }
 
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-dark: #ffffff;
-        --color-white: #1a1a2e;
-        --color-gray-light: #2a2a3e;
-        --color-text: #ffffff;
-        --color-text-light: #b0b0b0;
-        --color-gray: #3a3a4e;
-    }
-
-    body {
-        background-color: #1a1a2e;
-        color: #ffffff;
-    }
-
-    .nav {
-        background-color: rgba(26, 26, 46, 0.95);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .hero {
-        background: linear-gradient(135deg, #1a1a2e 0%, #2a2a3e 100%);
-    }
-
-    .feature-card,
-    .stat-card,
-    .info-card,
-    .team-member {
-        background-color: #2a2a3e;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .feature-card:hover,
-    .team-member:hover {
-        box-shadow: 0 8px 24px rgba(120, 12, 40, 0.3);
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="tel"],
-    textarea,
-    select {
-        background-color: #2a2a3e;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: #ffffff;
-    }
-
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="password"]:focus,
-    input[type="tel"]:focus,
-    textarea:focus,
-    select:focus {
-        border-color: var(--color-dark-red);
-        background-color: #333344;
-    }
-
-    .radio-option {
-        background-color: #2a2a3e;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .radio-option:hover {
-        border-color: var(--color-dark-red);
-        background-color: #333344;
-    }
-
-    input[type="radio"]:checked + .radio-option {
-        border-color: var(--color-dark-red);
-        background-color: rgba(120, 12, 40, 0.1);
-    }
-
-    .result-card {
-        background-color: #2a2a3e;
-        border: 2px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .footer {
-        background: linear-gradient(135deg, #1a1a2e 0%, #2a2a3e 100%);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .image-placeholder {
-        background: linear-gradient(135deg, #2a2a3e 0%, #333344 100%);
-    }
-
-    .btn-secondary {
-        background-color: transparent;
-        color: #ffffff;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .btn-secondary:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        border-color: #ffffff;
-    }
-}
-
 body {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
@@ -430,12 +330,11 @@ h2 {
 
 .step-connector {
     position: absolute;
-    left: 21px; /* Centered on 42px icon (42/2 = 21) */
-    top: 42px; /* Start from bottom of icon */
-    width: 0;
-    height: calc(100% - 2px);
-    border-left: 3px dotted var(--color-dark-red);
-    opacity: 0.6;
+    left: 23px;
+    top: 48px;
+    width: 2px;
+    height: calc(100% + 40px);
+    background: linear-gradient(to bottom, var(--color-dark-red), transparent);
 }
 
 .step:last-child .step-connector {
