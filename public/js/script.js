@@ -42,6 +42,77 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Stat counter animation
+document.addEventListener('DOMContentLoaded', () => {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    function animateCounter(element) {
+        const target = element.textContent.trim();
+        const isPercentage = target.includes('%');
+        const isMultiplier = target.includes('X');
+        
+        // Extract the number
+        let targetNumber;
+        if (isPercentage) {
+            targetNumber = parseFloat(target.replace('%', ''));
+        } else if (isMultiplier) {
+            targetNumber = parseFloat(target.replace('X', ''));
+        } else {
+            targetNumber = parseFloat(target);
+        }
+        
+        const duration = 1500; // 1.5 seconds
+        const frameRate = 1000 / 60; // 60fps
+        const totalFrames = Math.round(duration / frameRate);
+        let frame = 0;
+        
+        const counter = setInterval(() => {
+            frame++;
+            const progress = frame / totalFrames;
+            const currentNumber = targetNumber * progress;
+            
+            let displayValue;
+            if (Number.isInteger(targetNumber)) {
+                displayValue = Math.floor(currentNumber);
+            } else {
+                displayValue = Math.floor(currentNumber);
+            }
+            
+            if (isPercentage) {
+                element.textContent = displayValue + '%';
+            } else if (isMultiplier) {
+                element.textContent = displayValue + 'X';
+            } else {
+                element.textContent = displayValue;
+            }
+            
+            if (frame === totalFrames) {
+                clearInterval(counter);
+                // Set final value
+                element.textContent = target;
+            }
+        }, frameRate);
+    }
+    
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.dataset.animated) {
+                entry.target.dataset.animated = 'true';
+                animateCounter(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    statNumbers.forEach(stat => {
+        observer.observe(stat);
+    });
+});
+
 // Mobile menu toggle with hamburger-to-X animation
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const navLinks = document.getElementById('navLinks');
