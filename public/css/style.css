@@ -330,11 +330,11 @@ h2 {
 
 .step-connector {
     position: absolute;
-    left: 23px;
-    top: 48px;
-    width: 2px;
-    height: calc(100% + 40px);
-    background: linear-gradient(to bottom, var(--color-dark-red), transparent);
+    left: 21px;
+    top: 42px;
+    width: 0;
+    height: calc(100% - 2px);
+    border-left: 2px dotted var(--color-dark-red);
 }
 
 .step:last-child .step-connector {
