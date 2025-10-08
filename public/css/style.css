@@ -132,6 +132,13 @@ h1, h2, h3, h4, h5, h6, .hero h1, .hero p, .btn {
     overflow: hidden;
 }
 
+/* Mobile: Make hero taller to fill screen */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 100vh;
+    }
+}
+
 .hero-content {
     position: relative;
     z-index: 2;
@@ -515,6 +522,91 @@ h2 {
     color: var(--color-text-light);
     font-style: normal;
     font-size: 0.95rem;
+}
+
+/* Our Team Section */
+.our-team {
+    padding: 80px 0;
+    background-color: var(--color-white);
+}
+
+.team-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 48px;
+    font-size: 1rem;
+    color: var(--color-text-light);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-top: 32px;
+}
+
+.team-member {
+    background: var(--color-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+    border: 1px solid var(--color-gray);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.team-member-photo {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background-color: var(--color-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-member-info {
+    padding: 24px;
+}
+
+.team-member-info h3 {
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+    color: var(--color-dark);
+}
+
+.member-role {
+    font-size: 1rem;
+    color: var(--color-dark-red);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.member-description {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .team-member-photo {
+        height: 280px;
+    }
 }
 
 /* Quiz Page */
